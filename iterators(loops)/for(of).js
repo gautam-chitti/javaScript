@@ -28,3 +28,4 @@ for (const [key , value] of map) { // hence we are decinstructing the element to
      
     
 } // you may think it might work work on objects too , but the objects are unordered so they are not iterateable
+// maps aint iterateable too
