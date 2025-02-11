@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gautam</title>
+</head>
+
+<body>
+    <h1 id="textToChange">
+        Hello there Gautam
+    </h1>
+    <h2 id="time"></h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="Dont">Dont Update</button>
+</body>
+<script>
+    const startButton = document.getElementById('start')
+    const stopButton = document.getElementById('stop')
+    const dontButton = document.getElementById('Dont')
+    
+    const updateMessage = setTimeout(() => {
+        const h1 = document.getElementById('textToChange')
+        h1.innerHTML = ' you have spent 5 seconds here'
+    },
+
+        1500
+    )
+    dontButton.addEventListener('click', () => {
+        clearTimeout(updateMessage)
+    })
+    startButton.addEventListener('click', () =>{
+        const stopWatch = setInterval(()=>{
+            const date = new Date().toLocaleTimeString();
+            const h2 = document.getElementById('time')
+            h2.innerHTML = `time : ${date}`
+        },1000)
+        stopButton.addEventListener('click', ()=>{
+        clearInterval(stopWatch)
+    })
+    })
+    
+</script>
+
+</html>
