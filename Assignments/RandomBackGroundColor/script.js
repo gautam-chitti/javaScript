@@ -10,13 +10,16 @@ const randomColor = () =>{
   }
   return color
 }
+let changeColor;
 startbutton.addEventListener('click', ()=>{
-  const changeColor = setInterval(()=>{
+  if(!changeColor){
+    changeColor = setInterval(()=>{
     body.style.backgroundColor = `${randomColor()}`
 
-  },1000)
+  },1000)}
 
   stopbutton.addEventListener('click', ()=>{
     clearInterval(changeColor)
+    changeColor = null;
   })
 })
