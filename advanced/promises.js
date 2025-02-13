@@ -31,7 +31,7 @@ new Promise(function(abc, xyz){
 
 const newPromise = new Promise((resolve, reject) => {
     setTimeout(()=>{
-        const err = true;
+        const err = false;
         if(!err){
             resolve({user:'gautam', data : 5})
         }
@@ -43,10 +43,36 @@ const newPromise = new Promise((resolve, reject) => {
 async function consumePromise(){
                 
     try {
-        const respone = await newPromise
-        console.log(respone)
+        const respone = await newPromise // this will give use the data ( passed in resolve( ))
+        console.log(respone.data)
     } 
     catch (error) {
         console.log(error)
     }
 }
+consumePromise()
+
+
+// working with api the fetch also is just a promise . i.e. it return a promise object so it can be handled by
+
+const url = 'https://api.github.com/users/gautam-chitti'
+
+fetch(url).then((response) => response.json()).then((data)=> console.log(data)).catch((err) => console.log(err))
+
+// same thing with async await
+
+async function getUser(){
+    console.log(`***********************************************************************************************************`);
+    try {
+        const response = await fetch(url)
+        const data = await response.json()
+        console.log(data)
+    } catch (error) {
+        console.log(error);
+        
+    }
+
+
+
+}
+getUser()
