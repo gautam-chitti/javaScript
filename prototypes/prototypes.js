@@ -38,3 +38,48 @@ myArr.gautam()
 
 // myStr.gautam()
 // myObj.gautam() /// both will generate error
+
+// so lets talk about inheritance 
+
+const user = {
+    name : 'gautam',
+    email: 'gautamSharma@gmial.com'
+}
+const Teacher = {
+    teach : true
+}
+const TeachingSupport ={
+    helpTeacher : true
+}
+const TechSupport = {
+    provideHelp : true,
+    
+}
+TechSupport.__proto__ = user
+TechSupport.name = 'Teacher1'
+TechSupport.age = 22
+/// this is inheritance , so techsupport willl also have all the properties as the user also thats why we can access
+// and donot think .name is adding stuff to obj  like age , because if not specified it will have that of user as you
+// can see about the email thing
+
+console.log(TechSupport.name);
+console.log(TechSupport.age);
+console.log(TechSupport.email);
+// console.log(Tech);
+
+console.log(TechSupport) // but when did this this will not have email specified as it was not given/modifiedTo a new val
+
+String.prototype.trueLen = function(){
+    console.log(`val of this is ${this}`)
+    console.log(`its trueLen is ${this.trim().length}`)
+
+    const updateVal = this.trim()
+    return updateVal
+    // return 
+
+}
+let hell = 'gautam       '
+hell.trueLen()
+const newhell = hell.trueLen()
+console.log(`New Returned word is ${newhell}`)
+console.log(newhell.length)
